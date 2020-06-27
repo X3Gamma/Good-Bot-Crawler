@@ -3,10 +3,12 @@
 import sys
 
 '''
-Role Separation Name Generator v1.2
+Role Separation Name Generator v1.2.1
 Note: Compatible with python2.5>
 '''
 
+# Suggested role max char is 32, change if necessary
+MAXCHAR = 32
 # Only edit this if you need to change the output file name
 FILE = u"discordrolename.txt"
 
@@ -17,12 +19,10 @@ def main():
         role = raw_input("Role name: ")
     except NameError:
         role = input("Role name: ").encode()
-    if len(role) > 32:
-        print("Only role names lesser than 32 characters are supported.")
+    if len(role) > MAXCHAR:
+        print("Only role names lesser than {} characters are supported.".format(MAXCHAR))
         exit(1)
 
-    # Role max char is 36
-    MAXCHAR = 36
     try:
         with open(FILE, "wb") as target:
             spacereq = MAXCHAR-len(role)
@@ -44,6 +44,6 @@ if __name__ == "__main__":
     if sys.version_info[0] == 2 and sys.version_info[1] < 5:
         print("Sorry. Only python2.5> is supported.")
         exit(1)
-    print("Role Separation Name Generator v1.2\r\n"
+    print("Role Separation Name Generator v1.2.1\r\n"
           "Everything in '{}' will be overwritten.".format(FILE))
     main()
