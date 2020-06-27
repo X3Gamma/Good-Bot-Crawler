@@ -18,10 +18,11 @@ def main():
         print("Only role names lesser than 32 characters are supported.")
         exit(1)
 
-    # Role max char is 32
+    # Role max char is 36
+    MAXCHAR = 36
     try:
         with open(FILE, "wb") as target:
-            spacereq = 32-len(role)
+            spacereq = MAXCHAR-len(role)
             if spacereq % 2:
                 val = space*int(spacereq/2)
                 txt = sep +space+ val+role+val+sep
