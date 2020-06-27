@@ -2,10 +2,13 @@
 # pragma pylint: disable=unused-argument, no-self-use
 import sys
 
-# Note: Compatible with python2.5>
+'''
+Role Separation Name Generator v1.2
+Note: Compatible with python2.5>
+'''
 
 # Only edit this if you need to change the output file name
-FILE = u"role.txt"
+FILE = u"discordrolename.txt"
 
 def main():
     sep = b"\xe2\x81\xa3"
@@ -41,4 +44,6 @@ if __name__ == "__main__":
     if sys.version_info[0] == 2 and sys.version_info[1] < 5:
         print("Sorry. Only python2.5> is supported.")
         exit(1)
+    print("Role Separation Name Generator v1.2\r\n"
+          "Everything in '{}' will be overwritten.".format(FILE))
     main()
